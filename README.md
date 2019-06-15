@@ -19,6 +19,7 @@ Front-End Framework:
 - [Canvas.js](https://canvasjs.com/)
 - [Chart.js](https://www.chartjs.org/)
 - [Bootstrap 4](https://getbootstrap.com/)
+- [Mapbox](https://www.mapbox.com/)
 
 ![](./image/slider/slider10.PNG)
 ![](./image/slider/slider11.PNG)
