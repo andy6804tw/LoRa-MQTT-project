@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="Dashboard">
+  <meta property="og:title" content="Dashboard">
+  <meta property="og:description" content="Dashboard">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./image/favicon.ico">
+  <title>Dashboard</title>
+  <link rel="shortcut icon" href="./image/favicon.ico">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./css/accordion.css">
+  <link rel="stylesheet" href="./css/move-top.css">
+
+  
+</head>
+
+<body onscroll="onScreen()">
+  <div class="site-container">
+    <div class="site-pusher">
+      <!-- Navigation bar -->
+      <header class="header">
+        <a href="#" class="header__icon" id="header__icon" onclick="onMenu()"></a>
+        <!-- if center logo => d-flex justify-content-center -->
+        <div class="pt-3"><a href="#" class="header__logo">
+            <h4>Dashboard</h4>
+          </a></div>
+        <div class="justify-content-center align-items-center text-right">
+          <!-- Dropdown -->
+          <div class="nav-item dropdown" id="toggle" expanded="true" style="display:inline-block">
+            <a class="nav-link p-0 px-4" href="#" id="navbardrop" data-toggle="dropdown">
+              <span><img class="user mx-2" src="./image/user.jpg" alt="" srcset=""></span>
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right mt-2" id="dropdown">
+              <a class="dropdown-item" href="javascript:void(0)" onclick="call()">
+                <i class="fas fa-cog fa-fw"></i> Setting
+              </a>
+            </div>
+          </div>
+        </div>
+        <nav class="menu">
+          <div class="item">
+            <div class="ml-2"><i class="far fa-address-card"></i> 所 有 資 料</div>
+            <div class="ml-3"><a href="./gps.json" target="_blank" style="font-size:13px;">GPS API資料</a></div>
+            <div class="ml-3"><a href="./shake.json" target="_blank" style="font-size:13px;">震動 API資料</a></div>
+          </div>
+
+          <div class="fixed-bottom p-2"><a href="https://github.com/andy6804tw" style="font-size:15px;"><i class="fab fa-github-square fa-2x"></i>
+              Dashboard 2019.</a></div>
+        </nav>
+      </header>
+
+      <!-- Context 內容 -->
+      <div class="container">
+        <!-- GPS Map -->
+        <div class="map row justify-content-center align-items-center py-3 my-4">
+          <div class="col-12">
+            <h3 class="text-center pb-3">移動軌跡</h3>
+          </div>
+          <div class="col-12">
+            <!-- Mapbox MAP -->
+            <div id='map'></div>
+          </div>
+        </div>
+
+        <!-- Line area chart -->
+        <div class="line_area_chart row justify-content-between align-items-center text-center py-3 my-4">
+          <div class="col-12">
+            <h3>震動累積</h3>
+          </div>
+          <div class="col-12">
+            <!-- Line area chart -->
+            <div style="width:80%;margin: 0 auto">
+              <canvas id="canvas" style="width:75%;"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="row justify-content-between align-items-center text-center my-4">
+          <!-- Radar Chart -->
+          <div class="pie-chart col-sm-12 col-md-7 pl-0 pr-lg-3 pr-sm-0">
+            <div class="pt-3  pb-1">
+              <h4>每小時震動比例</h4>
+            </div>
+            <div id="chartContainer" class="mb-4" style="height: 370px;width: 100%;"></div>
+          </div>
+          <!-- Pie Chart -->
+          <div class="pie-chart col-sm-12 col-md-5 pr-0 pl-lg-3 pl-sm-0 pt-lg-0 pt-md-0 pt-sm-4" style="height: 450.7px;width: 100%;">
+            <div class=" pb-1">
+              <h4></h4>
+            </div>
+          <img src="./image/img01.png" style="width: 280px" alt="" srcset="">
+          </div>
+        </div>
+
+        <!-- Demo video -->
+        <div class="map row justify-content-center align-items-center text-center py-3 my-4">
+          <div class="col-12">
+            <h3 class="text-center pb-3">Demo 影片</h3>
+          </div>
+          <div class="col-12">
+            <iframe width="75%" height="550" src="https://www.youtube.com/embed/9pY0uXc8CCM" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- accordion -->
+        <div class="accordion accordion row justify-content-between align-items-center text-center">
+          <dl>
+            <dt><a class="accordionTitle p-4" href="#">簡報</a></dt>
+            <dd class="accordionItem accordionItemCollapsed">
+              <img src="./image/slider/slider1.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider2.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider3.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider4.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider5.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider6.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider7.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider8.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider9.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider10.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider11.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider12.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider13.PNG" style="width: 80%" alt="" srcset="">
+              <img src="./image/slider/slider14.PNG" style="width: 80%" alt="" srcset="">
+            
+            </dd>
+          </dl>
+        </div>
+      </div><!-- END context -->
+<!-- footer -->
+<div class="footer">
+  <!-- Visible only on lg and md  -->
+  <section class="container d-none d-xl-block d-lg-block d-md-block">
+    <div class="row justify-content-center align-items-top pt-5">
+      <div class="col-4 pr-5">
+        <img src="./image/index/footer-jhen-tai_logo.svg" style="width:100%;" alt="" srcset="">
+        <div class="footer-info mt-1">國立臺南大學 2019 物聯網課程 LoRa 應用期末專題實作 </div>
+      </div>
+      <div class="col-3 pl-4">
+        <div class="mb-2" style="font-size:16px;color:#fff;font-weight: 400;">參與人員</div>
+        <div class="footer-info">資工碩一 蔡易霖 M10759011</div>
+        <div class="footer-info">資工碩二 陳立中 M10659015</div>
+      </div>
+      <div class="col-2 pl-5">
+        <a href="https://sites.google.com/site/nutnoaselab/" class="footer-more">OASE Lab.</a><br>
+      </div>
+      <div class="col-12 my-4 text-center">
+        <div style="font-size:12px;color:#fff;font-weight: 300;">Copyright © 2019 by <a href="https://github.com/andy6804tw"><i class="fab fa-github"></i> andy6804tw</a> All Right
+          Reserverd <br> Last Updated: 2019/06/09</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+      <div class="site-cache" id="site-cache" onclick="offMenu()"></div>
+    </div> <!-- END site-pusher -->
+  </div> <!-- END site-container -->
+  <!-- Modal start -->
+  <div id="static-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none; padding-right: 0px;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button> -->
+          <h4 class="modal-title">Setting</h4>
+        </div>
+        <div class="modal-body">
+          <div class="my-2">
+            IP Address: <input id="ipInput" type="text" value="127.0.0.1"><br />
+          </div>
+          <div class="my-2">
+            PORT: <input id="portInput" type="text" value="5000"><br />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="buttonOK()">OK</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!-- Modal end -->
+  <!-- Scroll to top -->
+  <p class="cd-top text--replace js-cd-top" id="back-top">
+    <a href="#"><span></span></a>
+  </p>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="./js/getData.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/accordion.js"></script>
+  <script src="./js/util.js"></script>
+  <script src="./js/moveTop.js"></script>
+  <script src="./js/modal.min.js"></script>
+  <script src="./js/mapbox.js"></script>
+  <script src="./js/lineAreaChart.js"></script>
+  <script src="./js/pie-chart.js"></script>
+</body>
+
+</html>
