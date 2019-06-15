@@ -15,6 +15,11 @@
 ![](./Screenshot/youtube.png) https://www.youtube.com/watch?time_continue=158&v=9pY0uXc8CCM
 
 ## 架構
+Front-End Framework:
+- [Canvas.js](https://canvasjs.com/)
+- [Chart.js](https://www.chartjs.org/)
+- [Bootstrap 4](https://getbootstrap.com/)
+
 ![](./image/slider/slider10.PNG)
 ![](./image/slider/slider11.PNG)
 
