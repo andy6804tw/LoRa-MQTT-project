@@ -8,7 +8,7 @@
 - 資工碩二 陳立中 M10659015
 
 
-## [Demo](http://temportest.github.io/IoT-final-project)
+## [Demo](https://andy6804tw.github.io/LoRa-MQTT-project/)
 
 ![](./Screenshot/demo.gif)
 
