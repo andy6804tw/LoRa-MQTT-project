@@ -1,8 +1,7 @@
-
 let data = [];
 
 // fetch('http://localhost:8005/mqtt?macaddr=aa560370&startTime=2019-06-06 7:11:00&endTime=2019-06-06 12:00:00', {})
-fetch('gps.json', {})
+fetch('https://raw.githubusercontent.com/Temportest/IoT-final-project/master/gps.json', {})
   .then((response) => {
     return response.json();
   }).then((jsonData) => {
@@ -25,7 +24,7 @@ let count = 0;
 let index = 7;
 
 // fetch('http://localhost:8005/mqtt?macaddr=aaeec755&startTime=2019-06-06 7:11:00&endTime=2019-06-06 16:00:00')
-fetch('shake.json')
+fetch('https://raw.githubusercontent.com/Temportest/IoT-final-project/master/shake.json')
   .then((response) => {
     return response.json();
   }).then((jsonData) => {
